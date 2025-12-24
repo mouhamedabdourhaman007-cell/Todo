@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 500px;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+li.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+button{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
