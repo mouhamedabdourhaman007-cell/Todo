@@ -22,7 +22,7 @@ const renderTodos = () => {
     list.innerHTML = "";
     todos.forEach((todo, index) => {
         const li = document.createElement("li");
-        li.textContent = todo;
+        li.textContent = todo.text;
         if (todo.completed) {
             li.style.textDecoration = "line-through";
             li.style.opacity = "0.6";
