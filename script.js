@@ -4,6 +4,19 @@ const list = document.querySelector("#todo-list");
 
 let todos = [];
 
+const saveTodos = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+};
+
+const loadTodos = () => {
+    const data = localStorage.getItem("todos");
+    if (data) {
+        todos = JSON.parse(data);
+    } else {
+        todos = [];
+    }
+};
+
 const addTodo = () => {
     const text = input.value;
     if (text === "") return;
@@ -13,8 +26,9 @@ const addTodo = () => {
     });
 
     input.value = "";
+    saveTodos();
     renderTodos();
-}
+};
 
 button.addEventListener("click", addTodo);
 
@@ -48,3 +62,5 @@ input.addEventListener("keypress", (e) => {
         addTodo();
     }
 });
+loadTodos();
+renderTodos();
