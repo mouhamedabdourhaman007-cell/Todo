@@ -54,7 +54,7 @@ const renderTodos = () => {
         li.addEventListener("click", () => {
             todo.completed = !todo.completed;
             saveTodos();
-            console.log(todo.completed);
+            renderTodos();
         });
 
         const deleteBtn = document.createElement("button");
