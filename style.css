@@ -1,12 +1,12 @@
 body{
     font-family: Arial, sans-serif;
     max-width: 500px;
-    background-color: #0f172a;
-    color: #e5e7eb;
+    background-color: #0f0f0f;
+    color: #fff;
     display: flex;
-    flex-direction: column;
     align-items: center;
     padding: 80px;
+    flex-direction: column;
 }
 h1{
     margin-bottom: 20px;
@@ -45,10 +45,11 @@ li button{
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    background-color: #22c55e;
+    background-color: #dc0a0a;
     color: black;
     font-weight: bold;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 #todo-list{
     list-style: none;
@@ -56,4 +57,35 @@ li button{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+#add-todo-btn:hover{
+    background-color: #a30808;
+}
+#counter{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.filters{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+.filters button{
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+#clear-completed-btn{
+    margin-top: 20px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #ff4d4d;
+    color: white;
+    font-weight: bold;
 }

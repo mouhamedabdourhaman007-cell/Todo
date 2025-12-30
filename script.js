@@ -1,6 +1,15 @@
 const input = document.querySelector("#todo-input");
 const button = document.querySelector("#add-todo-btn");
 const list = document.querySelector("#todo-list");
+let  currentFilter = "all";
+
+const filterButtons = document.querySelectorAll(".filters button");
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        currentFilter = button.dataset.filters;
+        renderTodos();
+    });
+});
 
 let todos = [];
 
@@ -35,6 +44,14 @@ button.addEventListener("click", addTodo);
 const renderTodos = () => {
     list.innerHTML = "";
 
+    let remaning = 0;
+
+    const filteredTodos = todos.filter(todo => {
+        if (currentFilter === "active") return !todo.completed;
+        if (currentFilter === "completed") return todo.completed;
+        return true;
+    });
+
     if (todos.length === 0) {
         const empty = document.createElement("li");
         empty.textContent = "Aucune tache pour le moment.";
@@ -43,7 +60,7 @@ const renderTodos = () => {
         return;
     }
 
-    todos.forEach((todo, index) => {
+    filteredTodos.forEach((todo, index) => {
         const li = document.createElement("li");
         li.textContent = todo.text;
 
@@ -69,7 +86,24 @@ const renderTodos = () => {
         li.appendChild(deleteBtn);
         list.appendChild(li);
     });
+
+    const total = todos.length;
+    const remaining = todos.filter(todo => !todo.completed).length;
+
+    counter.textContent = `${remaining} remaining / ${total} total`;
+
+    counter.classList.remove("pulse");
+    void counter.offsetWidth;
+    counter.classList.add("pulse");
 }
+const clearCompletedBtn = document.querySelector("#clear-completed-btn");
+
+clearCompletedBtn.addEventListener("click", () => {
+    todos = todos.filter(todo => !todo.completed);
+    saveTodos();
+    renderTodos();
+});
+
 button.addEventListener("click", addTodo);
 input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
