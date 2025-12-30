@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,27 @@
     <link rel="icon" href="data:">
 </head>
 <body>
-    <h1>Todo app</h1>
-    <input id="todo-input" type="text" placeholder="Entre une tâche">
-    <p id="counter">0 remaining / 0 total</p>
-    <div class="filters">
-        <button data-filters="all">All</button>
-        <button data-filters="active">Active</button>
-        <button data-filters="completed">Completed</button>
-    </div>
-    <button id="add-todo-btn">Ajouter</button>
-    <button id="clear-completed-btn">Clear Completed</button>
-    <ul id="todo-list"></ul>
+    <main class="app">
+        <header class="header">
+            <h1>Todo App</h1>
+            <p id="counter">0 remaining / 0 total></p> 
+        </header>
+        <div class="input-group">
+            <input type="text" id="todo-input" placeholder="Entre une tache...">
+        </div>
+        <div class="filters">
+             <button data-filters="all">All</button>
+             <button data-filters="active">Active</button>
+             <button data-filters="completed">Completed</button>
+        </div>
+
+        <hr>
+
+        <ul id="todo-list"></ul>
+        <p id="empty-message">Aucune taches pour le moment!</p>
+        <button id="add-todo-btn">+</button>
+        <button id="clear-completed-btn">Clear Completed</button>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
