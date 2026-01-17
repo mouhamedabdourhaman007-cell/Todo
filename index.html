@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo app</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="data:">
 </head>
-<body>
-    <main class="app">
-        <header class="header">
-            <h1>Todo App</h1>
-            <p id="counter">0 remaining / 0 total></p> 
+<body class="min-h-screen bg-black text-white flex justify-center items-center pt-[60px]">
+    <main class="w-full max-w-[420px] p-5">
+        <header class="text-center">
+            <h1 class="text-[32px] font-bold mb-[6px]">Todo App</h1>
+            <p id="counter" class="text-[14px] opacity-70">0 remaining / 0 total</p> 
         </header>
-        <div class="input-group">
-            <input type="text" id="todo-input" placeholder="Entre une tache...">
+        <div class="flex gap-[10px] mt-5">
+            <input type="text" id="todo-input" placeholder="Entre une tache..." class="flex-1 bg-[#1c1c1e] px-4 py-[14px] text-[15px] text-white outline-none placeholder:text-[#9a9a9a] rounded">
+            <button id="add-todo-btn" class="w-[60px] h-[60px] rounded-xl bg-[#2c2c2e] text-white text-2xl cursor-pointer hover:bg-[#3a3a3c] mt-5">+</button>
         </div>
-        <div class="filters">
-             <button data-filters="all">All</button>
-             <button data-filters="active">Active</button>
-             <button data-filters="completed">Completed</button>
+        <div class="flex gap-[10px] mt-5">
+             <button data-filter="all" class="px-4 py-2 rounded-full bg-[#1c1c1e] text-[#aaa] font-medium hover:bg-white hover:text-black">All</button>
+             <button data-filter="active" class="px-4 py-2 rounded-full bg-[#1c1c1e] text-[#aaa] font-medium hover:bg-white hover:text-black">Active</button>
+             <button data-filter="completed" class="px-4 py-2 rounded-full bg-[#1c1c1e] text-[#aaa] font-medium hover:bg-white hover:text-black">Completed</button>
         </div>
 
-        <hr>
+        <hr class="my-5 h-px bg-[#1c1c1e] border-none">
 
-        <ul id="todo-list"></ul>
-        <p id="empty-message">Aucune taches pour le moment!</p>
-        <button id="add-todo-btn">+</button>
-        <button id="clear-completed-btn">Clear Completed</button>
+        <ul id="todo-list" class="flex flex-col gap-3"></ul>
+        <p id="empty-message"></p>
+        <button id="clear-completed-btn" class="mt-10 block mx-auto bg-transparent text-[#ff453a] text-sm cursor-pointer">Clear Completed</button>
     </main>
     <script src="script.js"></script>
 </body>
